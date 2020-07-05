@@ -13,12 +13,11 @@ let numImages = 12;
 //* *** Variables and classes ***************
 
 class artWork {
-	constructor(artist, title, summary, imgURL, infoURL) {
+	constructor(artist, title, id, imgURL) {
 		this.artist = artist;
 		this.title = title;
-		this.summary = summary;
+		this.id = id;
 		this.imgURL = imgURL;
-		this.infoURL = infoURL;
 	}
 	artNote() {
 		console.log(`This is a piece titled ${this.title} by ${this.artist}.`);
@@ -67,6 +66,16 @@ let loadPage = () => {
 			console.log(data.artObjects[0].principalOrFirstMaker);
 			console.log(data.artObjects[0].title);
 			console.log(data.artObjects[0].webImage.url);
+			data.artObjects.forEach((artObj) => {
+				// (artist, title, id, imgURL)
+				let newObj = new artWork(
+					artObj.principalOrFirstMaker,
+					artObj.title,
+					artObj.id,
+					artObj.webImage.url
+				);
+			});
+
 			return data.artObjects[0];
 		})
 		.then((artObj) => {
