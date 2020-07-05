@@ -5,6 +5,7 @@ let url = `https://www.rijksmuseum.nl/api/en/collection?key=`;
 let urlDetails = `https://www.rijksmuseum.nl/api/en/collection/`;
 let apiKey = `Cw5th9uF`;
 let numImages = 12;
+let artArray = [];
 
 //* *** Todo list ***************
 
@@ -56,16 +57,14 @@ let openModal = (itemId) => {
 		.catch((err) => console.warn(`Error: ${err.statusText}`));
 };
 
+let buildPage = (data) => {};
+
 // &ps=${numImages}
 //* Load page with 10 images
-let loadPage = () => {
+let fetchData = () => {
 	fetch(`${url}${apiKey}`)
 		.then((res) => (res.ok ? res.json() : Promise.reject(res)))
 		.then((data) => {
-			console.log(data.artObjects[0]);
-			console.log(data.artObjects[0].principalOrFirstMaker);
-			console.log(data.artObjects[0].title);
-			console.log(data.artObjects[0].webImage.url);
 			data.artObjects.forEach((artObj) => {
 				// (artist, title, id, imgURL)
 				let newObj = new artWork(
@@ -74,14 +73,9 @@ let loadPage = () => {
 					artObj.id,
 					artObj.webImage.url
 				);
+				artArray.push(newObj);
 			});
-
-			return data.artObjects[0];
-		})
-		.then((artObj) => {
-			// e.g. changes id from "en-BK-17040-A" to "BK-17040-A"
-			let itemId = artObj.id.slice(3);
-			openModal(itemId);
+			buildPage();
 		})
 		.catch((err) => console.warn(`Error: ${err.statusText}`));
 };
@@ -90,4 +84,4 @@ let loadPage = () => {
 
 //* *** Event Listeners ***************
 
-loadPage();
+fetchData();
