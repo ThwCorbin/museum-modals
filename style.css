@@ -28,17 +28,31 @@ body {
 /** Header ############### */
 header {
 	display: flex;
-	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
 	min-width: 100%;
-	padding-top: 1em;
+	padding: 1em;
 }
 
-nav {
-	margin-right: 5em;
+/* nav {
+	padding: 0.25em;
+}
+
+ul {
+	display: flex;
+	justify-content: flex-start;
 }
 
 li {
 	list-style: none;
+} */
+
+h1 {
+	padding: 0.25em;
+}
+
+p {
+	padding: 0.25em;
 }
 
 /** Main ############### */

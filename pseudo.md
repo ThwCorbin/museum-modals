@@ -20,7 +20,7 @@
 - loadPage()
 - fetch() GET collection + api key + number of results:
 
-  `https://www.rijksmuseum.nl/api/nl/collection?key=[api-key]&ps=12`
+  `https://www.rijksmuseum.nl/api/en/collection?key=api-key&ps=12`
 
 - Create new Artwork instance for 10 to 12 pieces of art
 - Assign artist, title, year, summary, image url, and more info url to instance
