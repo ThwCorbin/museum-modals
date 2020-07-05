@@ -20,32 +20,21 @@ class artWork {
 		this.description = "";
 	}
 	artNote() {
-		console.log(`This is a piece titled ${this.title} by ${this.artist}.`);
+		console.log(`This is a piece titled '${this.title}' by ${this.artist}.`);
 	}
 }
 
 //* *** Functions ***************
-let nelson = new artWork("Horatio");
 
-// data.artObjects
-// [i]id: "en-BK-17040-A"
-// [i]principalOrFirstMaker
-// [i]title
-// [i]webImage: {…}
-// guid: "219e43c9-6b48-4861-a0af-9269dba7e7ef"
-// width: 1441
-// height: 2500
-// offsetPercentageX: 0
-// offsetPercentageY: 0
-// url: "https://lh6.ggpht.com/9ulJVSDjPC6uiOPm-0Lj44cicGWRmukCmE98Ut3EAn6BhQeo76QZe_YIGiMTTX9rr4k3nqPymTmhrGjZDohEIR5ZrQ=s0"
-// ​​
-
-//* Modal requires new fetch to retrieve item details
-// BK-17040-A?key=
-// data.artObject.plaqueDescription:
 //* Open modal
-let openModal = (itemId) => {};
+let openModal = (itemId) => {
+	let currentObj = artArray.find((obj) => obj.id === itemId);
 
+	// set display = block;
+	console.log(currentObj.artNote());
+};
+
+//* Build html create gallery
 let buildPage = () => {
 	let htmlStr = "";
 	artArray.forEach((artObj) => {
@@ -57,22 +46,18 @@ let buildPage = () => {
 	app.innerHTML = htmlStr;
 };
 
+//* Make separate fetch to access artwork description
 let fetchDescription = (itemId) => {
-	// set display = block
-	// fetch details with clicked objects id minus "en-"
 	fetch(`${urlDetails}${itemId}?key=${apiKey}`)
 		.then((res) => (res.ok ? res.json() : Promise.reject(res)))
 		.then((data) => {
-			console.log(itemId);
 			let currentObj = artArray.find((obj) => obj.id === itemId);
 			currentObj.description = data.artObjectPage.plaqueDescription;
-			console.log(currentObj);
 		})
 		.catch((err) => console.warn(`Error: ${err.statusText}`));
 };
 
-// &ps=${numImages}
-//* Load page with 10 images
+//* Fetch data from Rijksmuseum API
 let fetchData = () => {
 	fetch(`${url}${apiKey}&p=6`)
 		.then((res) => (res.ok ? res.json() : Promise.reject(res)))
@@ -86,6 +71,7 @@ let fetchData = () => {
 					artObj.webImage.url
 				);
 				artArray.push(newObj);
+				//* Accessing artwork details requires another fetch
 				fetchDescription(artArray[artArray.length - 1].id);
 			});
 			buildPage();

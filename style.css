@@ -34,19 +34,6 @@ header {
 	padding: 1em;
 }
 
-/* nav {
-	padding: 0.25em;
-}
-
-ul {
-	display: flex;
-	justify-content: flex-start;
-}
-
-li {
-	list-style: none;
-} */
-
 h1 {
 	padding: 0.25em;
 }
@@ -62,19 +49,11 @@ main {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	justify-content: center;
 	min-width: 100%;
-	/* align-items: flex-start; */
 }
 
 .pic img {
 	max-width: 200px;
 }
-
-/** Footer ############### */
-/* footer {
-	display: flex;
-	justify-content: space-around;
-	min-width: 100%;
-} */
 
 /** Media queries ############### */
 /** media greater >= 1440px  */
