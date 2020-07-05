@@ -1,10 +1,8 @@
 //* *** Variables ***************
 let app = document.querySelector("#app");
-// let url =
 let url = `https://www.rijksmuseum.nl/api/en/collection?key=`;
 let urlDetails = `https://www.rijksmuseum.nl/api/en/collection/`;
 let apiKey = `Cw5th9uF`;
-let numImages = 12;
 let artArray = [];
 
 //* *** Todo list ***************
@@ -19,6 +17,7 @@ class artWork {
 		this.title = title;
 		this.id = id;
 		this.imgURL = imgURL;
+		this.description = "";
 	}
 	artNote() {
 		console.log(`This is a piece titled ${this.title} by ${this.artist}.`);
@@ -45,24 +44,37 @@ let nelson = new artWork("Horatio");
 // BK-17040-A?key=
 // data.artObject.plaqueDescription:
 //* Open modal
-let openModal = (itemId) => {
+let openModal = (itemId) => {};
+
+let buildPage = () => {
+	let htmlStr = "";
+	artArray.forEach((artObj) => {
+		let divStr = `<div class="pic" id=${artObj.id}>
+										<img src=${artObj.imgURL}>
+									</div>`;
+		htmlStr += divStr;
+	});
+	app.innerHTML = htmlStr;
+};
+
+let fetchDescription = (itemId) => {
 	// set display = block
 	// fetch details with clicked objects id minus "en-"
 	fetch(`${urlDetails}${itemId}?key=${apiKey}`)
 		.then((res) => (res.ok ? res.json() : Promise.reject(res)))
 		.then((data) => {
-			// singular artObject
-			console.log(data.artObject.plaqueDescriptionEnglish);
+			console.log(itemId);
+			let currentObj = artArray.find((obj) => obj.id === itemId);
+			currentObj.description = data.artObjectPage.plaqueDescription;
+			console.log(currentObj);
 		})
 		.catch((err) => console.warn(`Error: ${err.statusText}`));
 };
 
-let buildPage = (data) => {};
-
 // &ps=${numImages}
 //* Load page with 10 images
 let fetchData = () => {
-	fetch(`${url}${apiKey}`)
+	fetch(`${url}${apiKey}&p=6`)
 		.then((res) => (res.ok ? res.json() : Promise.reject(res)))
 		.then((data) => {
 			data.artObjects.forEach((artObj) => {
@@ -70,10 +82,11 @@ let fetchData = () => {
 				let newObj = new artWork(
 					artObj.principalOrFirstMaker,
 					artObj.title,
-					artObj.id,
+					artObj.id.slice(3),
 					artObj.webImage.url
 				);
 				artArray.push(newObj);
+				fetchDescription(artArray[artArray.length - 1].id);
 			});
 			buildPage();
 		})
@@ -83,5 +96,11 @@ let fetchData = () => {
 //* *** Event Handlers ***************
 
 //* *** Event Listeners ***************
+app.addEventListener("click", (e) => {
+	if (e.target.localName === "img") {
+		openModal(e.target.parentElement.id);
+	}
+});
 
+//* Invoke on page load
 fetchData();

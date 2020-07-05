@@ -57,18 +57,24 @@ p {
 
 /** Main ############### */
 main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	justify-content: center;
+	min-width: 100%;
+	/* align-items: flex-start; */
+}
+
+.pic img {
+	max-width: 200px;
 }
 
 /** Footer ############### */
-footer {
+/* footer {
 	display: flex;
 	justify-content: space-around;
 	min-width: 100%;
-}
+} */
 
 /** Media queries ############### */
 /** media greater >= 1440px  */
