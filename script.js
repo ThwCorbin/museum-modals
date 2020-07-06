@@ -27,11 +27,13 @@ class artWork {
 //* *** Functions ***************
 
 //* Open modal
-let openModal = (itemId) => {
-	let currentObj = artArray.find((obj) => obj.id === itemId);
-
+let openModal = (e) => {
+	console.log(e.target);
+	// let itemId = e.target.parentElement.id;
+	// let currentObj = artArray.find((obj) => obj.id === itemId);
+	// console.log(currentObj);
 	// set display = block;
-	console.log(currentObj.artNote());
+	// console.log(currentObj.artNote());
 };
 
 //* Build html create gallery
@@ -79,12 +81,10 @@ let fetchData = () => {
 		.catch((err) => console.warn(`Error: ${err.statusText}`));
 };
 
-//* *** Event Handlers ***************
-
 //* *** Event Listeners ***************
 app.addEventListener("click", (e) => {
 	if (e.target.localName === "img") {
-		openModal(e.target.parentElement.id);
+		openModal(e);
 	}
 });
 
