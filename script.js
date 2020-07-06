@@ -38,10 +38,8 @@ class artWork {
 
 //* Open modal
 let openModal = (e) => {
-	console.log(e.target);
 	let itemId = e.target.parentElement.id;
 	let currentObj = artArray.find((obj) => obj.id === itemId);
-	console.log(currentObj.artNote());
 	modalBack.style.display = "flex";
 	modImg.src = currentObj.imgURL;
 	modArtist.textContent = currentObj.artist;
