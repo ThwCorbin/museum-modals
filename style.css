@@ -65,11 +65,13 @@ main {
 	display: none;
 	flex-direction: column;
 	position: fixed;
+	top: 20vh;
 	z-index: 1;
 	width: 70vw;
 	height: 50vh;
 	color: var(--white);
 	background-color: var(--gray-darkest);
+	overflow: auto;
 }
 
 .mod-top {
