@@ -181,6 +181,11 @@ footer {
 		flex-direction: column;
 	}
 
+	.mod-headers {
+		/* align-self: center; */
+		padding-left: 0.75em;
+	}
+
 	.m-top:last-child {
 		order: 1;
 	}
@@ -196,6 +201,11 @@ footer {
 	.sub-head {
 		max-width: 20em;
 		text-align: center;
+	}
+
+	h2,
+	h3 {
+		font-size: 0.9em;
 	}
 }
 
