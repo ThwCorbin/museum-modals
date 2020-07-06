@@ -16,7 +16,7 @@ let artArray = [];
 
 //* *** Todo list ***************
 
-// todo media queries for modal
+// todo media queries small devices (< 768px)
 // todo mobile options other than modal
 
 //* *** Variables and classes ***************

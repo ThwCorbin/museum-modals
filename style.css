@@ -166,9 +166,23 @@ footer {
 
 /** media less than 768px  */
 @media all and (max-width: 767px) {
+	#modal-foreground {
+		/* width: 70vw;
+		height: auto; */
+		margin-top: 0;
+	}
+
 	#app {
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 		grid-template-columns: 1fr 1fr;
+	}
+
+	.mod-top {
+		flex-direction: column;
+	}
+
+	.m-top:last-child {
+		order: 1;
 	}
 
 	.pic:last-child {
