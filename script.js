@@ -7,7 +7,9 @@ let artArray = [];
 
 //* *** Todo list ***************
 
-// todo
+// todo fix image sizes
+// todo add modal
+// todo media queries
 
 //* *** Variables and classes ***************
 
@@ -29,11 +31,11 @@ class artWork {
 //* Open modal
 let openModal = (e) => {
 	console.log(e.target);
-	// let itemId = e.target.parentElement.id;
-	// let currentObj = artArray.find((obj) => obj.id === itemId);
+	let itemId = e.target.parentElement.id;
+	let currentObj = artArray.find((obj) => obj.id === itemId);
 	// console.log(currentObj);
 	// set display = block;
-	// console.log(currentObj.artNote());
+	console.log(currentObj.artNote());
 };
 
 //* Build html create gallery

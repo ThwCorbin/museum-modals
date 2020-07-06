@@ -32,24 +32,6 @@ body {
 	padding: 1em;
 }
 
-/** lvfha ############### */
-a:link,
-a:visited {
-	color: var(--gray-light);
-	text-decoration: none;
-}
-
-a:focus,
-a:hover {
-	color: var(--red-rijks);
-	text-decoration: underline;
-}
-
-a:active {
-	color: var(--gray-darkest);
-	text-decoration: underline;
-}
-
 /** Header ############### */
 header {
 	display: flex;
@@ -92,6 +74,7 @@ main {
 footer {
 	display: flex;
 	justify-content: center;
+	margin: 1em 0;
 }
 
 /** Media queries ############### */
@@ -149,4 +132,22 @@ footer {
 	.pic img {
 		max-width: 300px;
 	}
+}
+
+/** lvfha ############### */
+a:link,
+a:visited {
+	color: var(--gray-light);
+	text-decoration: none;
+}
+
+a:focus,
+a:hover {
+	color: var(--red-rijks);
+	text-decoration: underline;
+}
+
+a:active {
+	color: var(--gray-darkest);
+	text-decoration: underline;
 }
