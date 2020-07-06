@@ -57,7 +57,7 @@ let buildPage = () => {
 	let htmlStr = "";
 	artArray.forEach((artObj) => {
 		let divStr = `<div class="pic" id=${artObj.id}>
-										<img src=${artObj.imgURL}>
+										<img src=${artObj.imgURL} alt="Art titled '${artObj.title}' by ${artObj.artist}">
 									</div>`;
 		htmlStr += divStr;
 	});
