@@ -138,6 +138,10 @@ h3 {
 	padding: 0.25em;
 }
 
+.pic:nth-child(2) {
+	order: 10;
+}
+
 .pic img {
 	max-width: 200px;
 	object-fit: cover;
