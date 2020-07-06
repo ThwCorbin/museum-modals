@@ -1,7 +1,8 @@
 //* *** Variables ***************
 let body = document.querySelector("body");
 let app = document.querySelector("#app");
-let modal = document.querySelector("#modal");
+let modalBack = document.querySelector("#modal-background");
+let modalFore = document.querySelector("#modal-foreground");
 let modImg = document.querySelector(".mod-img");
 let modHeads = document.querySelector(".mod-headers");
 let modTitle = document.querySelector(".mod-title");
@@ -43,8 +44,7 @@ let openModal = (e) => {
 	let itemId = e.target.parentElement.id;
 	let currentObj = artArray.find((obj) => obj.id === itemId);
 	console.log(currentObj.artNote());
-	modal.style.display = "flex";
-	// body.classList.add("body-background");
+	modalBack.style.display = "block";
 	modImg.src = currentObj.imgURL;
 	modArtist.textContent = currentObj.artist;
 	modTitle.textContent = currentObj.title;
@@ -53,8 +53,7 @@ let openModal = (e) => {
 
 //* Close modal
 let closeModal = () => {
-	modal.style.display = "none";
-	body.classList.remove("body-background");
+	modalBack.style.display = "none";
 };
 
 //* Build html create gallery

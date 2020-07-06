@@ -61,12 +61,15 @@ main {
 	min-width: 100%;
 }
 
-#modal {
+#modal-background {
 	display: none;
-	flex-direction: column;
 	position: fixed;
-	top: 20vh;
 	z-index: 1;
+}
+
+#modal-foreground {
+	display: flex;
+	flex-direction: column;
 	width: 70vw;
 	height: 50vh;
 	color: var(--white);
