@@ -1,5 +1,7 @@
 //* *** Variables ***************
+let body = document.querySelector("body");
 let app = document.querySelector("#app");
+let modal = document.querySelector("#modal");
 let url = `https://www.rijksmuseum.nl/api/en/collection?key=`;
 let urlDetails = `https://www.rijksmuseum.nl/api/en/collection/`;
 let apiKey = `Cw5th9uF`;
@@ -35,6 +37,8 @@ let openModal = (e) => {
 	let currentObj = artArray.find((obj) => obj.id === itemId);
 	// console.log(currentObj);
 	// set display = block;
+	modal.style.display = "block";
+	body.addClass("body-background");
 	console.log(currentObj.artNote());
 };
 
