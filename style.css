@@ -94,11 +94,6 @@ footer {
 	justify-content: center;
 }
 
-.foot-link {
-	color: var(--gray-light);
-	text-decoration: none;
-}
-
 /** Media queries ############### */
 /** media greater >= 1440px  */
 @media all and (min-width: 1440px) {
