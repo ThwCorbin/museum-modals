@@ -2,6 +2,7 @@
 /** Variables ############### */
 :root {
 	--white: #ffffff;
+	--white-off: #f0f8ff;
 	--gray-light: #a2abad;
 	--gray-dark: #40474f;
 	--gray-darkest: #343537;
@@ -30,12 +31,6 @@ body {
 	width: 100vw;
 	height: 100vh;
 	padding: 1em;
-}
-
-.body-background {
-	z-index: 1;
-	background-color: var(--gray-dark);
-	opacity: 0.25;
 }
 
 /** Header ############### */
@@ -68,12 +63,54 @@ main {
 
 #modal {
 	display: none;
+	flex-direction: column;
 	position: fixed;
-	z-index: 2;
+	z-index: 1;
 	width: 70vw;
 	height: 50vh;
-	padding-top: 20vh;
-	background-color: var(--gray-light);
+	color: var(--white);
+	background-color: var(--gray-darkest);
+}
+
+.mod-top {
+	display: flex;
+	flex-direction: row;
+}
+
+.mod-img {
+	max-width: 15em;
+	padding: 1em;
+}
+
+.mod-headers {
+	padding-top: 1.5em;
+}
+
+h2 {
+	font-size: 1em;
+	font-style: italic;
+	padding-bottom: 0.25em;
+}
+
+h3 {
+	font-family: Lato, sans-serif;
+}
+
+#x-modal-parent {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	margin-left: auto;
+}
+
+#x-modal {
+	color: var(--red-rijks);
+	font-size: 2em;
+	padding: 0.25em;
+}
+
+.mod-description {
+	padding: 1em;
 }
 
 #app {
@@ -92,6 +129,11 @@ main {
 .pic img {
 	max-width: 200px;
 }
+
+/* .transparent {
+	background-color: var(--white-off);
+	opacity: 0.25;
+} */
 
 /** Footer ############### */
 footer {

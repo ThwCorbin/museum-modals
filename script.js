@@ -2,6 +2,12 @@
 let body = document.querySelector("body");
 let app = document.querySelector("#app");
 let modal = document.querySelector("#modal");
+let modImg = document.querySelector(".mod-img");
+let modHeads = document.querySelector(".mod-headers");
+let modTitle = document.querySelector(".mod-title");
+let modArtist = document.querySelector(".mod-artist");
+let modDescription = document.querySelector(".mod-description");
+let xModal = document.querySelector("#x-modal");
 let url = `https://www.rijksmuseum.nl/api/en/collection?key=`;
 let urlDetails = `https://www.rijksmuseum.nl/api/en/collection/`;
 let apiKey = `Cw5th9uF`;
@@ -35,11 +41,19 @@ let openModal = (e) => {
 	console.log(e.target);
 	let itemId = e.target.parentElement.id;
 	let currentObj = artArray.find((obj) => obj.id === itemId);
-	// console.log(currentObj);
-	// set display = block;
-	modal.style.display = "block";
-	body.addClass("body-background");
 	console.log(currentObj.artNote());
+	modal.style.display = "flex";
+	// body.classList.add("body-background");
+	modImg.src = currentObj.imgURL;
+	modArtist.textContent = currentObj.artist;
+	modTitle.textContent = currentObj.title;
+	modDescription.textContent = currentObj.description;
+};
+
+//* Close modal
+let closeModal = () => {
+	modal.style.display = "none";
+	body.classList.remove("body-background");
 };
 
 //* Build html create gallery
@@ -88,6 +102,8 @@ let fetchData = () => {
 };
 
 //* *** Event Listeners ***************
+xModal.addEventListener("click", closeModal);
+
 app.addEventListener("click", (e) => {
 	if (e.target.localName === "img") {
 		openModal(e);
