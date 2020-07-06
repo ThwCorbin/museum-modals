@@ -2,7 +2,11 @@
 /** Variables ############### */
 :root {
 	--white: #ffffff;
+	--gray-light: #a2abad;
+	--gray-dark: #40474f;
+	--gray-darkest: #343537;
 	--black: #000000;
+	--red-rijks: #d55140;
 }
 
 /** Fonts ###############  */
@@ -17,12 +21,33 @@
 	margin: 0;
 }
 
-/** Body & Container */
+/** Body ############### */
 body {
+	display: flex;
+	flex-direction: column;
 	font-family: "Poppins", sans-serif;
 	font-size: 16px;
 	width: 100vw;
 	height: 100vh;
+	padding: 1em;
+}
+
+/** lvfha ############### */
+a:link,
+a:visited {
+	color: var(--gray-light);
+	text-decoration: none;
+}
+
+a:focus,
+a:hover {
+	color: var(--red-rijks);
+	text-decoration: underline;
+}
+
+a:active {
+	color: var(--gray-darkest);
+	text-decoration: underline;
 }
 
 /** Header ############### */
@@ -36,10 +61,12 @@ header {
 
 h1 {
 	padding: 0.25em;
+	color: var(--gray-dark);
 }
 
 p {
 	padding: 0.25em;
+	color: var(--gray-light);
 }
 
 /** Main ############### */
@@ -51,23 +78,80 @@ main {
 	min-width: 100%;
 }
 
+.pic {
+	display: flex;
+	justify-content: center;
+	padding: 0.25em;
+}
+
 .pic img {
 	max-width: 200px;
+}
+
+/** Main ############### */
+footer {
+	display: flex;
+	justify-content: center;
+}
+
+.foot-link {
+	color: var(--gray-light);
+	text-decoration: none;
 }
 
 /** Media queries ############### */
 /** media greater >= 1440px  */
 @media all and (min-width: 1440px) {
+	.pic {
+		margin-bottom: 1em;
+	}
 }
 
-/** media less than 1000px  */
-@media all and (max-width: 999px) {
+/** media less than 1050px  */
+@media all and (max-width: 1049px) {
+	main {
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.pic:last-child {
+		display: none;
+	}
 }
 
 /** media less than 768px  */
 @media all and (max-width: 767px) {
+	main {
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.pic:last-child {
+		display: flex;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	.sub-head {
+		max-width: 20em;
+		text-align: center;
+	}
 }
 
-/** media less than 600px  */
-@media all and (max-width: 599px) {
+/** media less than 414px  */
+@media all and (max-width: 413px) {
+	h1 {
+		font-size: 1.5em;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.pic img {
+		max-width: 300px;
+	}
 }
