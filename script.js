@@ -16,8 +16,6 @@ let artArray = [];
 
 //* *** Todo list ***************
 
-// todo fix image sizes
-// todo gray out/opacity background when openModal()
 // todo media queries for modal
 // todo mobile options other than modal
 

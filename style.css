@@ -140,12 +140,8 @@ h3 {
 
 .pic img {
 	max-width: 200px;
+	object-fit: cover;
 }
-
-/* .transparent {
-	background-color: var(--white-off);
-	opacity: 0.25;
-} */
 
 /** Footer ############### */
 footer {
